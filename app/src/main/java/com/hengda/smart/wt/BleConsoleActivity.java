@@ -1,5 +1,7 @@
 package com.hengda.smart.wt;
 
+import org.kymjs.kjframe.KJActivity;
+
 /**
  * @author WZQ
  * @version V1.0
@@ -8,6 +10,11 @@ package com.hengda.smart.wt;
  * @date 2016/6/2 10:28
  * @update (date)
  */
-public class BleConsoleActivity {
+public class BleConsoleActivity extends KJActivity{
 
+
+    @Override
+    public void setRootView() {
+        setContentView(R.layout.activity_test);
+    }
 }
