@@ -1,0 +1,73 @@
+<!--
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lucyfyr.MainActivity"
+    tools:ignore="MergeRootFrame" />
+  -->
+  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zslone.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+      
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/InfoShow" />
+
+      <EditText
+          android:id="@+id/editText1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:text="设置bdaddr" >
+
+          <requestFocus />
+      </EditText>
+
+      <EditText
+          android:id="@+id/editText2"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:text="文件名.txt" />
+
+      <EditText
+          android:id="@+id/editText3"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:text="rssi门限值" />
+
+      <Button
+          android:id="@+id/button1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="set_bdaddr_filter"
+          android:text="设置" />
+
+      <Button
+          android:id="@+id/button3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="set_Hcitool"
+          android:text="打开hcitool" />
+
+      <Button
+          android:id="@+id/button2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:onClick="set_startRecording"
+          android:text="开始记录" />
+
+</LinearLayout>

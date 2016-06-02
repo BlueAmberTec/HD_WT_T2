@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#000"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="BLE最强编号"
+        android:textColor="#FFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_ble_top_no"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text=""
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_ble_top_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#000"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="处理后的BLE号"
+        android:textColor="#FFF"
+        android:textSize="18sp" />
+    
+        <TextView
+        android:id="@+id/tv_ble_top_no_ac"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="xxx"
+        android:textColor="#FF0000"
+        android:textSize="35sp" />
+
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="打开BLE扫描服务" />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭BLE扫描服务" />
+
+</LinearLayout>
