@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hengda.smart.blelib.CommonUtil;
+import com.orhanobut.logger.LogLevel;
+import com.orhanobut.logger.Logger;
 
 import org.kymjs.kjframe.utils.KJLoger;
 
@@ -27,12 +30,26 @@ public class SerialPort_MainActivity extends SerialPortActivity {
 
     public static final int SHOW_RFID=0x01;
 
+    public  static final String TAG ="AndroidLOG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rfid);
         ButterKnife.bind(this);
+        Logger
+                .init("BlueAmer")                  // 默认为PRETTYLOGGER，可以设置成为自定义tag
+                .setMethodCount(2)                 // logger所在方法显示开关 0 为不显示，1、2 为不同的方法信息显示样式
+                .hideThreadInfo()                  // 线程信息显示，默认打开
+                .setLogLevel(LogLevel.FULL)        // 默认是打开日志显示（FULL），关闭（NONE）
+                .setMethodOffset(2);                // 默认为0 ,方法体样式
+        Logger.v("这是 全局 Logger.init(\"BlueAmer\")输出显示");
+        Logger.wtf("这是wtf");
+        Logger.t("BlueAmer_Child").v("这是 全局 Logger.t(\"BlueAmer_Child\").v()输出显示");
+        Logger.t("BlueAmer_JSON").json("{\"code\":\"success\",\"info\":\"\\u6ce8\\u518c\\u6210\\u529f\",\"referer\":\"\",\"state\":\"fail\"}");
+
         consoleAction = new Intent();
+
     }
 
     private Handler rfidShowHandler = new Handler(){
@@ -42,6 +59,8 @@ public class SerialPort_MainActivity extends SerialPortActivity {
             switch (msg.what){
                 case SHOW_RFID:
                     tvRfid.setText(rfid_num+"");
+                    Log.v(TAG,"这是Android Log 输出显示");
+                    Log.v(TAG,"{\"code\":\"success\",\"info\":\"\\u6ce8\\u518c\\u6210\\u529f\",\"referer\":\"\",\"state\":\"fail\"}");
                 break;
             }
         }

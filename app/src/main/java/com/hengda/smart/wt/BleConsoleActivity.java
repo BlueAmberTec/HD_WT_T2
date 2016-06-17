@@ -17,4 +17,6 @@ public class BleConsoleActivity extends KJActivity{
     public void setRootView() {
         setContentView(R.layout.activity_test);
     }
+
+
 }

@@ -14,7 +14,7 @@ import com.hengda.smart.blelib.HD10GBeacon;
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
-public class MainActivtity extends KJActivity {
+public class Ble10GTestActivtity extends KJActivity {
 	@BindView(id=R.id.tv_ble_top_no)
 	private TextView  bleNoTv;
 	@BindView(id=R.id.tv_ble_top_no_ac)
@@ -44,10 +44,10 @@ public class MainActivtity extends KJActivity {
    		super.widgetClick(v);
    		switch (v.getId()) {
 		case R.id.btn_open:
-			startService(new Intent(MainActivtity.this,Ble10GScanService.class));
+			startService(new Intent(Ble10GTestActivtity.this,Ble10GScanService.class));
 			break;
 		case R.id.btn_close:
-			stopService(new Intent(MainActivtity.this,Ble10GScanService.class));
+			stopService(new Intent(Ble10GTestActivtity.this,Ble10GScanService.class));
 			bleNoTv.setText("");
 			break;
 		default:
