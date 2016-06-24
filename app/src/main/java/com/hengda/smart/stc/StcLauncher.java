@@ -69,7 +69,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -92,7 +92,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -116,7 +116,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -139,7 +139,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -163,7 +163,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]=(byte) 0x01;
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -188,7 +188,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]=(byte) 0x02;
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -211,7 +211,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]=(byte) 0x02;
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -234,7 +234,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]=(byte) 0x02;
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -258,7 +258,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(id);
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]=(byte) 0x02;
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {
@@ -266,7 +266,6 @@ public class StcLauncher {
 		}
 		Logger.d("setID[ID设置]"+CommonUtil.bytesToHexString(command));
 	}
-
 
 	/**
 	 * 掉队提醒设置
@@ -282,7 +281,7 @@ public class StcLauncher {
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]= tixing;
 		command[8]=(byte) 0x02;
-		command[9]=(byte) (command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
 		} catch (IOException e) {

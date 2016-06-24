@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.hengda.smart.application.Application;
+import com.hengda.smart.media.MediaConstant;
+import com.hengda.smart.media.MusicService;
 import com.hengda.smart.stc.ControlService;
 import com.hengda.smart.stc.SharePreStcUtil;
 import com.hengda.smart.stc.StcConfig;
@@ -57,10 +59,16 @@ public class TestProtolActivity extends Activity {
     EditText etvId;
     @BindView(R.id.etv_volume)
     EditText etvVolume;
+    @BindView(R.id.btn_openmic)
+    Button btnOpenmic;
+    @BindView(R.id.btn_closemic)
+    Button btnClosemic;
 
     //==工具
     private StcLauncher stcLauncher;
     private SharePreStcUtil stcSaveUtil;
+    //mic音频播放
+    private Intent  playIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +78,8 @@ public class TestProtolActivity extends Activity {
         startService(new Intent(this, ControlService.class));
         stcLauncher = new StcLauncher((Application) this.getApplication(), this);
         stcSaveUtil = new SharePreStcUtil(this, StcConfig.SHARENAME);
+        playIntent =new Intent(this, MusicService.class);
+        playIntent.setAction("hengda.media.play.action");
     }
 
     @Override
@@ -77,7 +87,12 @@ public class TestProtolActivity extends Activity {
         super.setContentView(layoutResID);
     }
 
-    @OnClick({R.id.btn_open_rengong, R.id.btn_close_tongxin, R.id.btn_open_id_pipei, R.id.btn_close_id_pipei, R.id.btn_channel_set, R.id.btn_modle_gaoyz, R.id.btn_modle_kanggr, R.id.btn_id_set, R.id.btn_volume_set, R.id.btn_tixing_open, R.id.btn_tixing_close, R.id.container})
+    @OnClick({R.id.btn_open_rengong,
+            R.id.btn_close_tongxin, R.id.btn_open_id_pipei, R.id.btn_close_id_pipei,
+            R.id.btn_channel_set, R.id.btn_modle_gaoyz, R.id.btn_modle_kanggr,
+            R.id.btn_id_set, R.id.btn_volume_set, R.id.btn_tixing_open,
+            R.id.btn_tixing_close, R.id.container,
+            R.id.btn_openmic,R.id.btn_closemic})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_open_rengong:
@@ -93,7 +108,7 @@ public class TestProtolActivity extends Activity {
                 stcLauncher.exitIDPiPei();
                 break;
             case R.id.btn_channel_set:
-                if(etvChannel.getText().toString().length()>0){
+                if (etvChannel.getText().toString().length() > 0) {
                     stcLauncher.setChannel(Integer.parseInt(etvChannel.getText().toString()));
                     stcSaveUtil.setChannel(Integer.parseInt(etvChannel.getText().toString()));
                 }
@@ -105,13 +120,13 @@ public class TestProtolActivity extends Activity {
                 stcLauncher.setModleKangGanR();
                 break;
             case R.id.btn_id_set:
-                if(etvId.getText().toString().length()>0){
+                if (etvId.getText().toString().length() > 0) {
                     stcLauncher.setID(Integer.parseInt(etvId.getText().toString()));
                     stcSaveUtil.setID(Integer.parseInt(etvId.getText().toString()));
                 }
                 break;
             case R.id.btn_volume_set:
-                if(etvVolume.getText().toString().length()>0){
+                if (etvVolume.getText().toString().length() > 0) {
                     stcLauncher.setVolume(Integer.parseInt(etvVolume.getText().toString()));
                     stcSaveUtil.setVolume(Integer.parseInt(etvVolume.getText().toString()));
                 }
@@ -124,6 +139,15 @@ public class TestProtolActivity extends Activity {
                 break;
             case R.id.container:
                 break;
+            case R.id.btn_openmic:
+                playIntent.putExtra("MSG", MediaConstant.MSG.MIC_PLAY);
+                this.startService(playIntent);
+                break;
+            case R.id.btn_closemic:
+                playIntent.putExtra("MSG", MediaConstant.MSG.MIC_PAUSE);
+                this.startService(playIntent);
+
+                break;
         }
     }
 
@@ -131,6 +155,9 @@ public class TestProtolActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         stopService(new Intent(this, ControlService.class));
+        stopService(new Intent(this,MusicService.class));
         System.exit(0);
     }
+
+
 }
