@@ -29,6 +29,12 @@
             android:name="com.hengda.smart.blelib.Ble10GScanService"
             ></service>
         <service android:name="com.hengda.smart.stc.ControlService"></service>
+
+        <service android:name="com.hengda.smart.media.MusicService">
+            <intent-filter>
+                <action  android:name="hengda.media.play.action"  ></action>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

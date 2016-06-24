@@ -163,5 +163,16 @@
             android:text="关闭掉队提醒" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_openmic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开MIC"/>
+
+    <Button
+        android:id="@+id/btn_closemic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭MIC"/>
 
 </LinearLayout>
