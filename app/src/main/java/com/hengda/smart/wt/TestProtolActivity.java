@@ -107,35 +107,35 @@ public class TestProtolActivity extends Activity {
             case R.id.btn_close_id_pipei:
                 stcLauncher.exitIDPiPei();
                 break;
+            case R.id.btn_modle_gaoyz:
+            stcLauncher.setModleGaoYinZ();
+            break;
+            case R.id.btn_modle_kanggr:
+            stcLauncher.setModleKangGanR();
+            break;
             case R.id.btn_channel_set:
                 if (etvChannel.getText().toString().length() > 0) {
-                    stcLauncher.setChannel(Integer.parseInt(etvChannel.getText().toString()));
+                    stcLauncher.setChannel();
                     stcSaveUtil.setChannel(Integer.parseInt(etvChannel.getText().toString()));
                 }
                 break;
-            case R.id.btn_modle_gaoyz:
-                stcLauncher.setModleGaoYinZ();
-                break;
-            case R.id.btn_modle_kanggr:
-                stcLauncher.setModleKangGanR();
-                break;
             case R.id.btn_id_set:
                 if (etvId.getText().toString().length() > 0) {
-                    stcLauncher.setID(Integer.parseInt(etvId.getText().toString()));
+                    stcLauncher.setID();
                     stcSaveUtil.setID(Integer.parseInt(etvId.getText().toString()));
                 }
                 break;
             case R.id.btn_volume_set:
                 if (etvVolume.getText().toString().length() > 0) {
-                    stcLauncher.setVolume(Integer.parseInt(etvVolume.getText().toString()));
+                    stcLauncher.setVolume();
                     stcSaveUtil.setVolume(Integer.parseInt(etvVolume.getText().toString()));
                 }
                 break;
             case R.id.btn_tixing_open:
-                stcLauncher.setTiXing((byte) 0x80);
+                stcLauncher.setTiXing();
                 break;
             case R.id.btn_tixing_close:
-                stcLauncher.setTiXing((byte) 0x00);
+                stcLauncher.setTiXing();
                 break;
             case R.id.container:
                 break;

@@ -19,7 +19,7 @@ import java.security.InvalidParameterException;
 //		AA 55 05 07 频道 音量   ID号 提醒 模式  OR         ID号设置(0-255)
 //		AA 55 05 0C 频道 音量   ID号 提醒 模式  OR         高音质模式设置(01)
 //		AA 55 05 0D 频道 音量   ID号 提醒 模式  OR         抗干扰模式设置(02)
-//		AA 55 05 0F 频道 音量   ID号 提醒 模式  OR         开闭掉队提醒设置（开：0x80 关：0）
+//		AA 55 05 0F 频道 音量   ID号 提醒 模式  OR         开闭掉队提醒设置（开：0x80 120关：0）
 
 /**
  * @Description 应用向STC发送数据的应用
@@ -136,8 +136,8 @@ public class StcLauncher {
 		command[3]=(byte) 0x06 ;
 		command[4]= CommonUtil.getSingleByte(spUitl.getChannel());
 		command[5]= CommonUtil.getSingleByte(spUitl.getVolume());
-		command[6]=CommonUtil.getSingleByte(spUitl.getID());
-		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
+		command[6]= CommonUtil.getSingleByte(spUitl.getID());
+		command[7]= CommonUtil.getSingleByte(spUitl.getTiXing());
 		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
 		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
@@ -196,21 +196,43 @@ public class StcLauncher {
 		}
 		Logger.d("setModleKangGanR[抗干扰模式设置]"+CommonUtil.bytesToHexString(command));
 	}
+	/**
+	 *  模式设置
+	 */
+	public void setModle() {
+		byte[] command = new byte[10];
+		command[0]=(byte) 0xAA;
+		command[1]=(byte) 0x55;
+		command[2]=(byte) 0x05 ;
+		command[3]=(byte) 0x0D ;
+		command[4]= CommonUtil.getSingleByte(spUitl.getChannel());
+		command[5]= CommonUtil.getSingleByte(spUitl.getVolume());
+		command[6]=CommonUtil.getSingleByte(spUitl.getID());
+		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
+		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
+		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
+		try {
+			stcOutputStream.write(command);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Logger.d("setModle 干扰模式设置"+CommonUtil.bytesToHexString(command));
+	}
 
 	/**
 	 * 频道设置
 	 */
-	public void setChannel(int channel) {
+	public void setChannel() {
 		byte[] command = new byte[10];
 		command[0]=(byte) 0xAA;
 		command[1]=(byte) 0x55;
 		command[2]=(byte) 0x05 ;
 		command[3]=(byte) 0x08 ;
-		command[4]= CommonUtil.getSingleByte(channel);
+		command[4]= CommonUtil.getSingleByte(spUitl.getChannel());
 		command[5]= CommonUtil.getSingleByte(spUitl.getVolume());
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
-		command[8]=(byte) 0x02;
+		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
 		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
@@ -223,17 +245,17 @@ public class StcLauncher {
 	/**
 	 * 音量设置
 	 */
-	public void setVolume(int volume) {
+	public void setVolume() {
 		byte[] command = new byte[10];
 		command[0]=(byte) 0xAA;
 		command[1]=(byte) 0x55;
 		command[2]=(byte) 0x05 ;
 		command[3]=(byte) 0x09 ;
 		command[4]= CommonUtil.getSingleByte(spUitl.getChannel());
-		command[5]= CommonUtil.getSingleByte(volume);
+		command[5]= CommonUtil.getSingleByte(spUitl.getVolume());
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
-		command[8]=(byte) 0x02;
+		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
 		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
@@ -247,7 +269,7 @@ public class StcLauncher {
 	/**
 	 * ID设置
 	 */
-	public void setID(int id) {
+	public void setID() {
 		byte[] command = new byte[10];
 		command[0]=(byte) 0xAA;
 		command[1]=(byte) 0x55;
@@ -255,9 +277,9 @@ public class StcLauncher {
 		command[3]=(byte) 0x07 ;
 		command[4]= CommonUtil.getSingleByte(spUitl.getChannel());
 		command[5]= CommonUtil.getSingleByte(spUitl.getVolume());
-		command[6]=CommonUtil.getSingleByte(id);
+		command[6]=CommonUtil.getSingleByte(spUitl.getID());
 		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
-		command[8]=(byte) 0x02;
+		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
 		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);
@@ -270,7 +292,7 @@ public class StcLauncher {
 	/**
 	 * 掉队提醒设置
 	 */
-	public void setTiXing(byte tixing) {
+	public void setTiXing() {
 		byte[] command = new byte[10];
 		command[0]=(byte) 0xAA;
 		command[1]=(byte) 0x55;
@@ -279,8 +301,8 @@ public class StcLauncher {
 		command[4]= CommonUtil.getSingleByte(spUitl.getChannel());
 		command[5]= CommonUtil.getSingleByte(spUitl.getVolume());
 		command[6]=CommonUtil.getSingleByte(spUitl.getID());
-		command[7]= tixing;
-		command[8]=(byte) 0x02;
+		command[7]=CommonUtil.getSingleByte(spUitl.getTiXing());
+		command[8]= CommonUtil.getSingleByte(spUitl.getModle());
 		command[9]=(byte) (command[0]^command[1]^command[2]^command[3] ^ command[4]^ command[5]^ command[6]^ command[7]^ command[8]);
 		try {
 			stcOutputStream.write(command);

@@ -1,0 +1,178 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:ignore="MergeRootFrame">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/cardview_dark_background"
+        android:gravity="center"
+        android:text="HD_WTT3_协议测试版"
+        android:textColor="#FFF"
+        android:textSize="17sp" />
+
+    <include layout="@layout/layout_set_rengong"></include>
+    <include layout="@layout/layout_splitline"></include>
+    <include layout="@layout/layout_set_diaodui"></include>
+    <include layout="@layout/layout_splitline"></include>
+    <include layout="@layout/layout_set_idpipei"></include>
+    <include layout="@layout/layout_splitline"></include>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etv_channel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:hint="请输入频道号"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btn_channel_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="频道设置" />
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etv_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:hint="请输入ID值"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btn_id_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ID设置" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etv_volume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:hint="请输入音量值"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btn_volume_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="音量设置" />
+
+    </LinearLayout>
+    <include layout="@layout/layout_splitline"></include>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/setting_tv_lable_style"
+                android:text="当前模式" />
+
+            <TextView
+                android:id="@+id/tv_set_modle"
+                style="@style/setting_tv_content_style"
+                android:text="抗干扰模式" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_modle_gaoyz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="高音质模式设置" />
+
+            <Button
+                android:id="@+id/btn_modle_kanggr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="抗干扰模式设置" />
+        </LinearLayout>
+    </RelativeLayout>
+    <include layout="@layout/layout_splitline"></include>
+    <Button
+        android:id="@+id/btn_openmic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="打开MIC" />
+
+    <Button
+        android:id="@+id/btn_closemic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="关闭MIC" />
+    <Button
+        android:id="@+id/btn_close_tongxin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="关闭通信" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:visibility="invisible"
+            android:text="关闭通信" />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

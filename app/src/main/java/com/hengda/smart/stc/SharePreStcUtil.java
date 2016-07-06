@@ -48,7 +48,7 @@ public class SharePreStcUtil {
 		editor.commit();
 	}
 	public int getTiXing(){
-		return sp.getInt("TiXing",1);
+		return sp.getInt("TiXing",0);
 	}
 	//==模式
 	public void setModle(int id){
@@ -58,6 +58,28 @@ public class SharePreStcUtil {
 	public int getModle(){
 		return sp.getInt("Modle",1);
 	}
+
+
+	//==ID匹配
+	public void setIdPiPei(int state){
+		editor.putInt("IDPP", state);
+		editor.commit();
+	}
+
+	public int getIdPiPei(){
+		return sp.getInt("IDPP",0);
+	}
+
+	//==ID匹配
+	public void setRengongJJ(int state){
+		editor.putInt("RGJJ", state);
+		editor.commit();
+	}
+
+	public int getRengongJJ(){
+		return sp.getInt("RGJJ",0);
+	}
+
 
 }
 

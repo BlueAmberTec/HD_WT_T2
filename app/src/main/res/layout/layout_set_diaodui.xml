@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/setting_rl_style"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/setting_tv_lable_style"
+            android:text="掉队提醒" />
+
+        <TextView
+            android:id="@+id/tv_diaodui_state"
+            style="@style/setting_tv_content_style"
+            android:text="开启" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_switch_diaodui"
+        style="@style/setting_img_switch_style" />
+
+</RelativeLayout>
